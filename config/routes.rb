@@ -2,4 +2,6 @@ Rails.application.routes.draw do
 
   root to: 'photos#main'
 
+  get '/sign-up', to: 'users#sign_up', as: :sign_up
+
 end
