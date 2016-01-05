@@ -5,10 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
         <%= link_to image_tag("camera.png", class: "navbar-brand"), root_path %>
@@ -16,8 +17,8 @@
 
       <div class="navbar-right">
         <ul class="nav navbar-nav">
-          <li><%= link_to "Sign In", "#" %></li>
-          <li><%= link_to "Sign Up", "#" %></li>
+          <li><%= link_to "Sign In", "#", class: "navbar-brand signin" %></li>
+          <li><%= link_to "Sign Up", "#", class: "navbar-brand signup" %></li>
         </ul>
       </div>
 
