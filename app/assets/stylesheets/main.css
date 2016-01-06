@@ -21,3 +21,9 @@ body {
 .signup:hover {
   color: white !important;
 }
+
+.home:before {
+  content: "";
+  display: block;
+  clear: both;
+}
