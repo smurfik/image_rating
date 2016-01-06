@@ -1,0 +1,9 @@
+<% if @user %>
+  <ul class="list-unstyled">
+    <% @user.errors.each do |column, error_message| %>
+      <div class="row">
+        <li class="col-lg-6 col-lg-offset-3 text-center alert alert-danger"><%= column %> <%= error_message %></li>
+      </div>
+    <% end %>
+  </ul>
+<% end %>
