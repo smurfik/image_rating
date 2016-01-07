@@ -10,6 +10,14 @@ class PhotosController < ApplicationController
   def new
   end
 
+  def review
+    @photos = Photo.all
+  end
+
+  def review_photo
+    raise
+  end
+
   def create
     @photo = current_user.photos.build(params.require(:photo).permit(:description, :image_file))
     if @photo.save
