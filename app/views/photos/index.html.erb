@@ -1,1 +1,7 @@
-<h1 class="home"> Here is me! </h1>
+<div class="container">
+  <div class="home"></div>
+  <% @photos.each do |photo| %>
+    <li><%= image_tag photo.image_file.url(:square) %></li>
+    <li><%= photo.description %></li>
+  <% end %>
+</div>
