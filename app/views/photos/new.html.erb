@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row">
+    <h1 class="col-lg-6 col-lg-offset-3 text-center">Add Photo</h1>
+  </div>
+
+  <%= form_tag photos_path, class: "form-horizontal", multipart: true do %>
+    <div class="form-group">
+      <div class="col-lg-3 col-lg-offset-3 text-center">
+        <%= label_tag :image_file %>
+      </div>
+      <%= file_field_tag "photo[image_file]" %>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-3 col-lg-offset-3 text-center">
+        <%= label_tag :description %>
+      </div>
+      <%= text_area_tag "photo[description]" %>
+    <div class="col-lg-2 col-lg-offset-5">
+      <%= submit_tag "Add Photo", class: "btn btn-block btn-success" %>
+    </div>
+  <% end %>
+</div>

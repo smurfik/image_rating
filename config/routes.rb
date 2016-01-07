@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'photos#main'
   get '/photos', to: 'photos#index', as: :photos
+  post '/photos', to: 'photos#create'
+  get '/photos/new', to: 'photos#new', as: :new_photo
 
   get '/sign-up', to: 'users#sign_up', as: :sign_up
   post '/sign-up', to: 'users#create'

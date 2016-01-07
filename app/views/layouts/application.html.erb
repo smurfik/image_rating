@@ -25,7 +25,8 @@
             <li><%= link_to "Sign In", sign_in_path, class: "navbar-brand signin" %></li>
             <li><%= link_to "Sign Up", sign_up_path, class: "navbar-brand signup" %></li>
           <% else %>
-            <li><%= link_to "Sign Out", sign_out_path, class: "navbar-brand signup" %></li>
+            <li><%= link_to "Add Photo", new_photo_path, class: "navbar-brand" %></li>
+            <li><%= link_to "Sign Out", sign_out_path, class: "navbar-brand" %></li>
           <% end %>
         </ul>
       </div>
