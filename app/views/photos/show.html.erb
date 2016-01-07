@@ -1,0 +1,14 @@
+<div class="container">
+  <%= image_tag @photo.image_file.url(:square) %>
+  <%= @photo.description %>
+  <%= @photo.thumbs_up %>
+  <%= @photo.meh %>
+  <%= @photo.thumbs_down %>
+  <% if !current_user %>
+    <%= @photo.user.username %>
+  <% else %>
+    <%= form_tag photo_path(@photo.id), method: "DELETE"  do %>
+      <%= submit_tag "Remove", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    <% end %>
+  <% end %>
+</div>

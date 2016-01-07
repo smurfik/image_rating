@@ -1,7 +1,7 @@
 <div class="container">
   <div class="home"></div>
   <% @photos.each do |photo| %>
-    <li><%= image_tag photo.image_file.url(:square) %></li>
+    <li><%= link_to image_tag(photo.image_file.url(:square)), photo_path(photo.id) %></li>
     <li><%= photo.description %></li>
   <% end %>
 </div>

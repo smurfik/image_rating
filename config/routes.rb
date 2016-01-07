@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/photos', to: 'photos#index', as: :photos
   post '/photos', to: 'photos#create'
   get '/photos/new', to: 'photos#new', as: :new_photo
+  get '/photos/:id', to: 'photos#show', as: :photo
+  delete '/photos/:id', to: 'photos#destroy'
 
   get '/sign-up', to: 'users#sign_up', as: :sign_up
   post '/sign-up', to: 'users#create'
