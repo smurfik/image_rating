@@ -4,7 +4,7 @@
     <h1 class="col-lg-6 col-lg-offset-3 text-center">Sign Up</h1>
   </div>
 
-  <%= render "error_messages" %>
+  <%= render "error_messages", object: @user %>
 
   <%= form_tag sign_up_path, class: "form-horizontal" do %>
     <div class="form-group">
