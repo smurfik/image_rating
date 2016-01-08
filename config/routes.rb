@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/photos', to: 'photos#create'
   get '/photos/new', to: 'photos#new', as: :new_photo
   get '/photos/review', to: 'photos#review', as: :review_photo
-  post '/photos/review', to: 'photos#review_photo'
+  post '/photos/review/:id', to: 'photos#review_photo', as: :review_the_photo
   get '/photos/:id', to: 'photos#show', as: :photo
   delete '/photos/:id', to: 'photos#destroy'
 

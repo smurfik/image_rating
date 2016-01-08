@@ -1,22 +1,18 @@
 <div class="container">
   <h1> Hello </h1>
-  <% @photos.each do |photo| %>
-    <% if photo.user_id != current_user.id %>
-      <%= image_tag photo.image_file.url(:square) %>
-      <%= photo.description %>
-    <% end %>
+    <%= image_tag @selected_photo.image_file.url(:square) %>
+    <%= @selected_photo.description %>
 
-    <%= form_tag review_photo_path do %>
-      <%= text_area_tag :body, nil, class: "col-lg-2", placeholder: "leave a comment here" %>
-      <%= radio_button_tag(:rating, "thumbs up") %>
+    <%= form_tag review_the_photo_path(@selected_photo.id) do %>
+      <%= text_area_tag "comment[body]", nil, class: "col-lg-2", placeholder: "leave a comment here" %>
+      <%= radio_button_tag("comment[rating]", "thumbs up") %>
       <%= label_tag(:rating, "plusss") %>
-      <%= radio_button_tag(:rating, "meh") %>
+      <%= radio_button_tag("comment[rating]", "meh") %>
       <%= label_tag(:rating, "neutral") %>
-      <%= radio_button_tag(:rating, "thumbs down") %>
+      <%= radio_button_tag("comment[rating]", "thumbs down") %>
       <%= label_tag(:rating, "minus") %>
       <%= submit_tag "Review" %>
     <% end %>
     <br>
 
-  <% end %>
 </div>
