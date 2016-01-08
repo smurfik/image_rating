@@ -14,8 +14,8 @@ class PhotosController < ApplicationController
     @photos = Photo.all
     @selected_photos = []
     @photos.each do |photo|
-      # photo.comments.each do |comment|
-      #   next if comment.user_id == current_user.id
+      # photo.reviews.each do |review|
+      #   next if review.user_id == current_user.id
       # end
       if photo.user_id != current_user.id
         @selected_photos << photo
