@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
       # photo.comments.each do |comment|
       #   next if comment.user_id == current_user.id
       # end
-      if photo.user_id != current_user.id && !photo.reviewed
+      if photo.user_id != current_user.id
         @selected_photos << photo
       end
     end
@@ -25,21 +25,13 @@ class PhotosController < ApplicationController
   end
 
   def review_photo
+    raise
     @photo = Photo.find(params[:id])
-    if params[:comment][:body] != ""
-      @comment = current_user.comments.build(params.require(:comment).permit(:body))
+    if params[:review][:comment] != ""
+      @comment = current_user.comments.build(params.require(:review).permit(:comment, :rating))
       @comment.photo_id = @photo.id
       @comment.save
     end
-    if params[:comment][:rating] == "thumbs up"
-      @photo.thumbs_up += 1
-    elsif params[:comment][:rating] == "thumbs down"
-      @photo.thumbs_down += 1
-    elsif params[:comment][:rating] == "meh"
-      @photo.meh += 1
-    end
-    @photo.reviewed = true
-    @photo.save
     redirect_to photos_path, notice: "Thanks for the review!"
   end
 

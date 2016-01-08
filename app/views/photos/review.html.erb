@@ -4,12 +4,12 @@
     <%= @selected_photo.description %>
 
     <%= form_tag review_the_photo_path(@selected_photo.id) do %>
-      <%= text_area_tag "comment[body]", nil, class: "col-lg-2", placeholder: "leave a comment here" %>
-      <%= radio_button_tag("comment[rating]", "thumbs up") %>
+      <%= text_area_tag "review[comment]", nil, class: "col-lg-2", placeholder: "leave a comment here" %>
+      <%= radio_button_tag("review[rating]", "thumbs up") %>
       <%= label_tag(:rating, "plusss") %>
-      <%= radio_button_tag("comment[rating]", "meh") %>
+      <%= radio_button_tag("review[rating]", "meh") %>
       <%= label_tag(:rating, "neutral") %>
-      <%= radio_button_tag("comment[rating]", "thumbs down") %>
+      <%= radio_button_tag("review[rating]", "thumbs down") %>
       <%= label_tag(:rating, "minus") %>
       <%= submit_tag "Review" %>
     <% end %>

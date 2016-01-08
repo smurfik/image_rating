@@ -1,9 +1,6 @@
 <div class="container">
   <%= image_tag @photo.image_file.url(:square) %>
   <%= @photo.description %>
-  <%= @photo.thumbs_up %>
-  <%= @photo.meh %>
-  <%= @photo.thumbs_down %>
   <% if !current_user %>
     <%= @photo.user.username %>
   <% else %>
