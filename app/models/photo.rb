@@ -4,7 +4,7 @@ class Photo < ActiveRecord::Base
 
   validates :image_file, presence: true
 
-  has_many :comments, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   belongs_to :user
 
 end

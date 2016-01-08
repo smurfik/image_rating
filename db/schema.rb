@@ -11,29 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108004548) do
+ActiveRecord::Schema.define(version: 20160108023622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "body"
-    t.integer  "photo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-  end
 
   create_table "photos", force: :cascade do |t|
     t.string   "description"
     t.integer  "user_id"
     t.string   "image_file"
-    t.integer  "thumbs_up",   default: 0
-    t.integer  "meh",         default: 0
-    t.integer  "thumbs_down", default: 0
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "reviewed",    default: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "comment"
+    t.integer  "photo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "rating"
   end
 
   create_table "users", force: :cascade do |t|
