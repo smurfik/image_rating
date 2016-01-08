@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get '/photos', to: 'photos#index', as: :photos
   post '/photos', to: 'photos#create'
   get '/photos/new', to: 'photos#new', as: :new_photo
-  get '/photos/review', to: 'photos#review', as: :review_photo
-  post '/photos/review/:id', to: 'photos#review_photo', as: :review_the_photo
   get '/photos/:id', to: 'photos#show', as: :photo
   delete '/photos/:id', to: 'photos#destroy'
+
+  get '/review', to: 'reviews#index', as: :review
+  post '/review/:id', to: 'reviews#create', as: :new_review
 
   get '/sign-up', to: 'users#sign_up', as: :sign_up
   post '/sign-up', to: 'users#create'
