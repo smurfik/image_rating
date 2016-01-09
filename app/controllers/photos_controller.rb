@@ -23,6 +23,10 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
+  def ranked
+    @photos = Photo.all
+  end
+
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy

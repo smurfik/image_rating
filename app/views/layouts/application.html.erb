@@ -24,6 +24,7 @@
           <% if current_user %>
             <li><%= link_to "Add Photo", new_photo_path, class: "navbar-brand" %></li>
             <li><%= link_to "Review Photo", review_path, class: "navbar-brand" %></li>
+            <li><%= link_to "Ranked Photos", ranked_path, class: "navbar-brand" %></li>
             <li><%= link_to "Sign Out", sign_out_path, class: "navbar-brand" %></li>
           <% else %>
             <li><%= link_to "Sign In", sign_in_path, class: "navbar-brand signin" %></li>

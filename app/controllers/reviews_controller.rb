@@ -13,4 +13,7 @@ class ReviewsController < ApplicationController
     redirect_to photos_path, notice: "Thanks for the review!"
   end
 
+  def ranked
+  end
+
 end
