@@ -1,5 +1,5 @@
 <div class="container">
-  <%= image_tag @photo.image_file.url(:square) %>
+  <%= image_tag @photo.image_file.url(:preview) %>
   <%= @photo.description %>
   <% if !current_user %>
     <%= @photo.user.username %>

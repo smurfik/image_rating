@@ -1,11 +1,12 @@
 <div class="container">
-  <% if @random_photo %>
+  <% if @photo %>
     <h1 class="text-center">Review this image</h1>
-    <%= image_tag @random_photo.image_file.url(:square) %>
-    <%= @random_photo.description %>
-    <%= @random_photo.user.username %>
+    <%= render "users/error_messages", object: @photo %>
+    <%= image_tag @photo.image_file.url(:preview) %>
+    <%= @photo.description %>
+    <%= @photo.user.username %>
 
-    <%= form_tag new_review_path(@random_photo.id) do %>
+    <%= form_tag new_review_path(@photo.id) do %>
       <%= text_area_tag "review[comment]", nil, class: "col-lg-2", placeholder: "leave a comment here" %>
       <%= radio_button_tag("review[rating]", -1) %>
       <%= label_tag(:rating, "thumbs down") %>
