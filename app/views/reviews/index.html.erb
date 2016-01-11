@@ -1,6 +1,6 @@
 <div class="container">
   <% if @photo %>
-    <h1 class="text-center">Review this image</h1>
+    <h1 class="text-center home">Review this image</h1>
     <%= render "users/error_messages", object: @photo %>
     <%= image_tag @photo.image_file.url(:preview) %>
     <%= @photo.description %>

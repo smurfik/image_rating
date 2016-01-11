@@ -10,13 +10,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @photo = photo.find(params[:id])
+    @photo = Photo.find(params[:id])
     @review = current_user.reviews.build(params.require(:review).permit(:comment, :rating))
     @review.photo_id = @photo.id
     if @review.save
-      redirect_to photos_path, notice: "thanks for the review!"
+      redirect_to review_path, notice: "Thanks for the review!"
     else
-      flash[:notice] = "don't forget to rate the photo"
+      flash[:notice] = "Don't forget to rate the photo"
       render :index
     end
   end
