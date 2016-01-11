@@ -1,3 +1,12 @@
 <div class="container">
   <h1>Hello</h2>
+  <% @photos.each do |photo| %>
+    <div>
+    <%= image_tag photo.image_file.url(:preview) %>
+    <%= photo.user.username %>
+    photo id <%= photo.id %>
+    sum of reviews <%= photo.reviews.sum(:rating) %>
+    </div>
+    <br>
+  <% end %>
 </div>

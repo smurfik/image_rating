@@ -24,7 +24,12 @@ class PhotosController < ApplicationController
   end
 
   def ranked
-    @photos = Photo.all
+    @photos =
+      Photo
+        .joins("LEFT OUTER JOIN reviews ON photos.id = reviews.photo_id")
+        .select("photos.id, photos.user_id, description, image_file, coalesce(sum(reviews.rating), 0) as sum")
+        .group("photos.id")
+        .order("sum DESC")
   end
 
   def destroy
