@@ -12,7 +12,7 @@
         Description of the photo: <%= @photo.description %>
       <% end %>
       <%= form_tag new_review_path(@photo.id) do %>
-        <%= text_area_tag "review[comment]", nil, class: "col-sm-12", placeholder: "leave your comment here" %>
+        <%= text_area_tag "review[comment]", nil, class: "col-sm-12 input-lg", placeholder: "leave your comment here" %>
         <%= radio_button_tag("review[rating]", -1) %>
         <%= label_tag(:rating, "thumbs down") %>
         <%= radio_button_tag("review[rating]", 0) %>
