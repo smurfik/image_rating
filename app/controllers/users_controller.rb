@@ -33,4 +33,7 @@ class UsersController < ApplicationController
     end
   end
 
+  def account
+  end
+
 end

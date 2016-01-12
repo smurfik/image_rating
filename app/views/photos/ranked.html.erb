@@ -2,7 +2,7 @@
   <h1>Hello</h2>
   <% @photos.each do |photo| %>
     <div>
-    <%= image_tag photo.image_file.url(:preview) %>
+    <%= link_to image_tag(photo.image_file.url(:preview)), photo_path(photo.id) %>
     <%= photo.user.username %>
     photo id <%= photo.id %>
     sum of reviews <%= photo.reviews.sum(:rating) %>

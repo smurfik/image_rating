@@ -1,9 +1,17 @@
 <div class="container">
   <div class="home"></div>
-  <ul class="list-unstyled">
-    <% @photos.each do |photo| %>
-      <li><%= link_to image_tag(photo.image_file.url(:square)), photo_path(photo.id) %></li>
-      <li><%= photo.description %></li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <div>
+      <% @photos.in_groups_of(3, false).each do |group| %>
+        <div class="row">
+          <% group.each do |photo| %>
+            <div class="photo col-sm-4">
+              <%= link_to image_tag(photo.image_file.url(:square)), photo_path(photo.id) %>
+              <h2><%= photo.description %></h2>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

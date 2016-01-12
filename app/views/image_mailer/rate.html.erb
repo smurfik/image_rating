@@ -1,0 +1,11 @@
+<h1>Hello <%= @user.username.capitalize %></h1>
+
+<% if @review.comment != "" %>
+  <p>Here is your comment: <%= @review.comment %></p>
+<% end %>
+
+<p>Here is your score: <%= @review.rating %></p>
+<p>
+  <%= link_to "View photo", photo_url(@review.photo_id) %>
+</p>
+
