@@ -1,6 +1,9 @@
 class PhotosController < ApplicationController
 
   def main
+    if current_user
+      redirect_to photos_path
+    end
   end
 
   def index
