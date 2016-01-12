@@ -1,12 +1,16 @@
 <div class="container">
-  <h1>Hello</h2>
+  <h1 class="text-center">Photos sorted by rating</h2>
   <% @photos.each do |photo| %>
-    <div>
-    <%= link_to image_tag(photo.image_file.url(:preview)), photo_path(photo.id) %>
-    <%= photo.user.username %>
-    photo id <%= photo.id %>
-    sum of reviews <%= photo.reviews.sum(:rating) %>
+    <div class="row">
+      <div class="col-sm-9">
+        <%= link_to image_tag(photo.image_file.url(:preview), class: "show"), photo_path(photo.id) %>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to photo.user.username.capitalize, other_user_photos_path(photo.user.id) %>
+        photo id <%= photo.id %>
+        sum of reviews <%= photo.reviews.sum(:rating) %>
+      </div>
     </div>
-    <br>
+    </br>
   <% end %>
 </div>

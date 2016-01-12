@@ -2,23 +2,28 @@
   <% if @photo %>
     <h1 class="text-center home">Review this image</h1>
     <%= render "users/error_messages", object: @review %>
-    <%= image_tag @photo.image_file.url(:preview) %>
-    <%= @photo.description %>
-    <%= @photo.user.username %>
 
-    <%= form_tag new_review_path(@photo.id) do %>
-      <%= text_area_tag "review[comment]", nil, class: "col-lg-2", placeholder: "leave a comment here" %>
-      <%= radio_button_tag("review[rating]", -1) %>
-      <%= label_tag(:rating, "thumbs down") %>
-      <%= radio_button_tag("review[rating]", 0) %>
-      <%= label_tag(:rating, "meh") %>
-      <%= radio_button_tag("review[rating]", 1) %>
-      <%= label_tag(:rating, "thumbs up") %>
-      <%= submit_tag "Review" %>
-    <% end %>
+    <div class="col-sm-8">
+      <%= image_tag @photo.image_file.url(:preview) %>
+    </div>
+
+    <div class="col-sm-4">
+      <% if @photo.description.present? %>
+        Description of the photo: <%= @photo.description %>
+      <% end %>
+      <%= form_tag new_review_path(@photo.id) do %>
+        <%= text_area_tag "review[comment]", nil, class: "col-sm-12", placeholder: "leave your comment here" %>
+        <%= radio_button_tag("review[rating]", -1) %>
+        <%= label_tag(:rating, "thumbs down") %>
+        <%= radio_button_tag("review[rating]", 0) %>
+        <%= label_tag(:rating, "meh") %>
+        <%= radio_button_tag("review[rating]", 1) %>
+        <%= label_tag(:rating, "thumbs up") %>
+        <%= submit_tag "Review", class: "btn btn-block btn-success" %>
+      <% end %>
+    </div>
   <% else %>
     <h1 class="text-center home">No images to review</h1>
   <% end %>
-    <br>
-
+  <br>
 </div>

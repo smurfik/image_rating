@@ -1,0 +1,12 @@
+<div class="row">
+  <% @photos.in_groups_of(3, false).each do |group| %>
+    <div class="row">
+      <% group.each do |photo| %>
+        <div class="photo col-sm-4">
+          <%= link_to image_tag(photo.image_file.url(:square)), photo_path(photo.id) %>
+          <h2 class="text-center"><%= photo.description %></h2>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

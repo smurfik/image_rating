@@ -1,13 +1,19 @@
 <div class="container">
-  <%= image_tag @photo.image_file.url(:preview) %>
-  <%= @photo.description %>
-  <% if current_user %>
-    <% if @photo.user_id != current_user.id %>
-      <%= @photo.user.username %>
-    <% else %>
-      <%= form_tag photo_path(@photo.id), method: "DELETE" do %>
-        <%= submit_tag "Remove", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
-      <% end %>
+  <div class="row">
+    <div class="col-sm-9">
+      <%= image_tag @photo.image_file.url(:preview), class: "show" %>
+      <h3><%= @photo.description %></h3>
+    </div>
+    <% if current_user %>
+      <div class="col-sm-3">
+        <% if @photo.user_id != current_user.id %>
+          <%= @photo.user.username.capitalize %>
+        <% else %>
+          <%= form_tag photo_path(@photo.id), method: "DELETE" do %>
+            <%= submit_tag "Remove", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 </div>

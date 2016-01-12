@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/photos/ranked', to: 'photos#ranked', as: :ranked
   get '/photos/:id', to: 'photos#show', as: :photo
   delete '/photos/:id', to: 'photos#destroy'
+  get '/photos/by/:user_id', to: 'photos#other_user', as: :other_user_photos
 
   get '/review', to: 'reviews#index', as: :review
   post '/review/:id', to: 'reviews#create', as: :new_review

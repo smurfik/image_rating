@@ -38,4 +38,9 @@ class PhotosController < ApplicationController
     redirect_to photos_path, notice: "The photo was deleted!"
   end
 
+  def other_user
+    @user = User.find(params[:user_id])
+    @photos = @user.photos
+  end
+
 end
