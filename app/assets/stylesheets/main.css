@@ -20,6 +20,7 @@
 
 .img {
   background-color: #DDDDDD;
+  border-radius: 5px;
 }
 
 body {
@@ -53,5 +54,5 @@ body {
   margin-bottom: 20px;
   padding-top: 20px;
   background-color: white;
-  border: 3px solid gray;
+  border: 2px solid gray;
 }

@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   get '/sign-in', to: 'users#sign_in', as: :sign_in
   post '/sign-in', to: 'users#sign_in_user'
   get '/account', to: 'users#account', as: :account
+  patch '/account', to: 'users#update'
+  patch '/account/email', to: 'users#update_email', as: :update_email
 
 end

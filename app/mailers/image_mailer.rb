@@ -6,7 +6,9 @@ class ImageMailer < ApplicationMailer
     mail to: "#{@user.email}", subject: "Thanks for your rating, #{@user.username.capitalize}!"
   end
 
-  def notifications(user_id)
+  def subscribe(user_id)
+    @user = User.find(user_id)
+    mail to: "#{@user.email}", subject: "Thanks for subscribing, #{@user.username.capitalize}!"
   end
 
 end

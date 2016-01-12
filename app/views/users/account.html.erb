@@ -1,15 +1,22 @@
 <div class="container">
-  <h1>My Account</h1>
+  <h1 class="home">My Account</h1>
+  <%= render "error_messages", object: @user %>
   <div>My username: <%= current_user.username %></div>
   <div>My email: <%= current_user.email %></div>
-  <% current_user.reviews.each do |review| %>
-    <%= review.comment %>
-    <%= review.rating %>
+  <%= form_tag update_email_path, method: "PATCH" do %>
+    <%= text_field_tag "user[email]", @user.email, class: "col-lg-2", placeholder: "user@example.com" %>
+    <%= submit_tag "Update email", class: "btn" %>
+  <% end %>
+  </br>
+
+  <%= form_tag account_path, method: "PATCH" do %>
+    <% if current_user.notification %>
+      <%= label_tag "Don't want to receive any more emails?" %>
+      <%= submit_tag "Unsubscribe", class: "btn" %>
+    <% else %>
+      <%= label_tag "Would you like to receive updates?" %>
+      <%= submit_tag "Get Notifications", class: "btn" %>
+    <% end %>
   <% end %>
 
-  <%= form_tag "#", method: "GET" do %>
-    <%= label_tag "Check to receive notifications " %>
-    <%= check_box_tag :notification %>
-    <%= submit_tag "Get Notifications", class: "btn" %>
-  <% end %>
 </div>
