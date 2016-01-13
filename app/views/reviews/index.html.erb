@@ -1,10 +1,10 @@
 <div class="container">
   <% if @photo %>
-    <h1 class="text-center home">Review this image</h1>
+    <h1 class="text-center home rev">Review this image</h1>
     <%= render "users/error_messages", object: @review %>
 
     <div class="col-sm-8">
-      <%= image_tag @photo.image_file.url(:preview), class: "border" %>
+      <%= link_to image_tag(@photo.image_file.url(:preview), class: "border"), photo_path(@photo.id) %>
     </div>
 
     <div class="col-sm-4">
@@ -17,11 +17,11 @@
       <%= form_tag new_review_path(@photo.id) do %>
         <%= text_area_tag "review[comment]", nil, class: "col-sm-12 input-lg", placeholder: "leave your comment here" %>
         <%= radio_button_tag("review[rating]", -1) %>
-        <%= label_tag(:rating, "thumbs down") %>
+        <%= label_tag("review_rating_-1", "thumbs down") %>
         <%= radio_button_tag("review[rating]", 0) %>
-        <%= label_tag(:rating, "meh") %>
+        <%= label_tag("review_rating_0", "meh") %>
         <%= radio_button_tag("review[rating]", 1) %>
-        <%= label_tag(:rating, "thumbs up") %>
+        <%= label_tag("review_rating_1", "thumbs up") %>
         <%= submit_tag "Review", class: "btn btn-block btn-success" %>
       <% end %>
     </div>
