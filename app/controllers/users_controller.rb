@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def sign_out
     session.delete(:user_id)
-    redirect_to root_path, notice: "See you soon!"
+    redirect_to root_path
   end
 
   def sign_in
