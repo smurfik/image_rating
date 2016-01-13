@@ -3,38 +3,35 @@
 
   <%= render "error_messages", object: @user %>
 
-  <h1 class="text-center">
-    <%= gravatar_for(current_user.email) %>
-  </h1>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="jumbotron">
+        <h1 class="text-center"><%= gravatar_for(current_user.email) %></h1>
+        <h2 class="text-center"><%= current_user.username.capitalize %></h2>
+        <h3 class="text-center"><%= current_user.email %></h3>
 
-  <h2 class="text-center"><%= current_user.username.capitalize %></h2>
-  <h3 class="text-center"><%= current_user.email %></h3>
+        <%= form_tag update_email_path, method: "PATCH", class: "form-inline" do %>
+          <div class="form-group clear col-sm-offset-2">
+            <%= text_field_tag "user[email]", @user.email, placeholder: "user@example.com" %>
+            <%= submit_tag "Update email", class: "btn btn-success" %>
+          </div>
+        <% end %>
 
-  <%= form_tag update_email_path, method: "PATCH", class: "form-inline" do %>
-    <div class="col-sm-offset-4">
-      <div class="form-group">
-        <%= text_field_tag "user[email]", @user.email, class: "col-sm-12", placeholder: "user@example.com" %>
+        <%= form_tag account_path, method: "PATCH", class: "form-inline" do %>
+          <% if current_user.notification %>
+            <div class="form-group clear col-sm-offset-1">
+              <%= label_tag "Don't want to receive any more emails?" %>
+              <%= submit_tag "Unsubscribe", class: "btn" %>
+            </div>
+          <% else %>
+            <div class="form-group clear col-sm-offset-1">
+              <%= label_tag "Would you like to receive updates?" %>
+              <%= submit_tag "Get Notifications", class: "btn" %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-      <%= submit_tag "Update email", class: "btn btn-success" %>
     </div>
-  <% end %>
-
-  <%= form_tag account_path, method: "PATCH", class: "form-inline" do %>
-    <% if current_user.notification %>
-      <div class="col-sm-offset-4 clear">
-        <div class="form-group">
-          <%= label_tag "Don't want to receive any more emails?" %>
-        </div>
-        <%= submit_tag "Unsubscribe", class: "btn" %>
-      </div>
-    <% else %>
-      <div class="col-sm-offset-4 clear">
-        <div class="form-group">
-          <%= label_tag "Would you like to receive updates?" %>
-        </div>
-        <%= submit_tag "Get Notifications", class: "btn" %>
-      </div>
-    <% end %>
-  <% end %>
+  </div>
 
 </div>

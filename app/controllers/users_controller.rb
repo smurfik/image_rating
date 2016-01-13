@@ -53,6 +53,7 @@ class UsersController < ApplicationController
     if current_user.save
       redirect_to account_path, notice: "Email was updated!"
     else
+      @user = current_user
       render :account
     end
   end
