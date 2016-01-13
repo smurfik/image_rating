@@ -44,6 +44,9 @@ class PhotosController < ApplicationController
   def other_user
     @user = User.find(params[:user_id])
     @photos = @user.photos
+    if @user.id == current_user.id
+      redirect_to photos_path
+    end
   end
 
 end
