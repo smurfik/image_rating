@@ -1,0 +1,2 @@
+<%= link_to gravatar_for(photo.user.email), other_user_photos_path(photo.user.id) %>
+<%= link_to photo.user.username.capitalize, other_user_photos_path(photo.user.id) %>

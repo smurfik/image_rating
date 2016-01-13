@@ -8,6 +8,9 @@
     </div>
 
     <div class="col-sm-4">
+      <div>
+        Photo by: <%= render "photos/gravatar", photo: @photo %>
+      </div>
       <% if @photo.description.present? %>
         Description of the photo: <%= @photo.description %>
       <% end %>
