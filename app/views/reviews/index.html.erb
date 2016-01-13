@@ -8,11 +8,11 @@
     </div>
 
     <div class="col-sm-4">
-      <div>
+      <div class="review">
         Photo by: <%= render "photos/gravatar", photo: @photo %>
       </div>
       <% if @photo.description.present? %>
-        Description of the photo: <%= @photo.description %>
+        <div class="desc"><div class="ph">Description of the photo: </div><%= @photo.description %></div>
       <% end %>
       <%= form_tag new_review_path(@photo.id) do %>
         <%= text_area_tag "review[comment]", nil, class: "col-sm-12 input-lg", placeholder: "leave your comment here" %>
