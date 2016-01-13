@@ -1,21 +1,41 @@
 <div class="container">
-  <h1 class="home">My Account</h1>
-  <%= render "error_messages", object: @user %>
-  <div>My username: <%= current_user.username %></div>
-  <div>My email: <%= current_user.email %></div>
-  <%= form_tag update_email_path, method: "PATCH" do %>
-    <%= text_field_tag "user[email]", @user.email, class: "col-lg-2", placeholder: "user@example.com" %>
-    <%= submit_tag "Update email", class: "btn" %>
-  <% end %>
-  </br>
+<h1 class="home text-center"></h1>
 
-  <%= form_tag account_path, method: "PATCH" do %>
+  <%= render "error_messages", object: @user %>
+
+  <h1 class="text-center">
+    <%= gravatar_for(current_user.email) %>
+  </h1>
+
+  <h2 class="text-center"><%= current_user.username.capitalize %></h2>
+  <h3 class="text-center"><%= current_user.email %></h3>
+
+  <%= form_tag update_email_path, method: "PATCH", class: "form-horizontal" do %>
+    <div class="form-group">
+      <div class="col-sm-offset-4">
+        <%= text_field_tag "user[email]", @user.email, class: "col-sm-6", placeholder: "user@example.com" %>
+      </div>
+    </div>
+    <div class="col-lg-2 col-lg-offset-5">
+      <%= submit_tag "Update email", class: "btn btn-success btn-block" %>
+    </div>
+  <% end %>
+
+  <%= form_tag account_path, method: "PATCH", class: "form-inline" do %>
     <% if current_user.notification %>
-      <%= label_tag "Don't want to receive any more emails?" %>
-      <%= submit_tag "Unsubscribe", class: "btn" %>
+      <div class="col-sm-offset-4 clear">
+        <div class="form-group">
+          <%= label_tag "Don't want to receive any more emails?" %>
+        </div>
+        <%= submit_tag "Unsubscribe", class: "btn" %>
+      </div>
     <% else %>
-      <%= label_tag "Would you like to receive updates?" %>
-      <%= submit_tag "Get Notifications", class: "btn" %>
+      <div class="col-sm-offset-4 clear">
+        <div class="form-group">
+          <%= label_tag "Would you like to receive updates?" %>
+        </div>
+        <%= submit_tag "Get Notifications", class: "btn" %>
+      </div>
     <% end %>
   <% end %>
 

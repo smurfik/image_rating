@@ -46,6 +46,13 @@ body {
   clear: both;
 }
 
+.clear:before {
+  content: "";
+  display: block;
+  clear: both;
+  height: 30px;
+}
+
 .photo img {
   width: 100%;
 }
@@ -54,5 +61,13 @@ body {
   margin-bottom: 20px;
   padding-top: 20px;
   background-color: white;
+  border: 2px solid gray;
+}
+
+.grav {
+  border-radius: 5px;
+}
+
+.border {
   border: 2px solid gray;
 }

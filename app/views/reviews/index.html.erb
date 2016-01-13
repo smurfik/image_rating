@@ -4,7 +4,7 @@
     <%= render "users/error_messages", object: @review %>
 
     <div class="col-sm-8">
-      <%= image_tag @photo.image_file.url(:preview) %>
+      <%= image_tag @photo.image_file.url(:preview), class: "border" %>
     </div>
 
     <div class="col-sm-4">
