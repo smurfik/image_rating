@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.build(params.require(:review).permit(:comment, :rating))
     @review.photo_id = @photo.id
     if @review.save
+      ImageMailer.notify(@photo.user_id, @review.id).deliver_now if @photo.user.notification
       ImageMailer.rate(current_user.id, @review.id).deliver_now if current_user.notification
       redirect_to review_path, notice: "Thanks for the review!"
     else
