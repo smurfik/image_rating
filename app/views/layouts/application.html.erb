@@ -19,9 +19,9 @@
     <div class="container">
       <div class="navbar-header">
         <% if !current_user %>
-          <%= link_to image_tag("camera.png", class: "navbar-brand img"), root_path %>
+          <%= link_to image_tag("https://s3-us-west-2.amazonaws.com/image-rating-production/camera.png", class: "navbar-brand img"), root_path %>
         <% else %>
-          <%= link_to image_tag("camera.png", class: "navbar-brand img"), photos_path %>
+          <%= link_to image_tag("https://s3-us-west-2.amazonaws.com/image-rating-production/camera.png", class: "navbar-brand img"), photos_path %>
         <% end %>
         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target=".menu-wrapper">
           <span class="icon-bar"></span>
