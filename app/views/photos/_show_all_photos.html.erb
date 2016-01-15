@@ -5,6 +5,9 @@
         <div class="photo col-sm-4">
           <%= link_to image_tag(photo.image_file.url(:square)), photo_path(photo.id) %>
           <h2 class="text-center"><%= photo.description %></h2>
+          <% if photo.description.blank? %>
+            <h2 class="random"></h2>
+          <% end %>
         </div>
       <% end %>
     </div>

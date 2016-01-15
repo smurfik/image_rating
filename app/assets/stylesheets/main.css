@@ -74,6 +74,10 @@ body {
   border: 2px solid gray;
 }
 
+.random {
+  padding-bottom: 33px;
+}
+
 .grav {
   border-radius: 5px;
 }
