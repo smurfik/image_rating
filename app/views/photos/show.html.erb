@@ -19,7 +19,7 @@
         <% @photo.reviews.each do |review| %>
           <% if review.comment.present? %>
             <div class="iconDetails">
-              <%= gravatar_for(review.user.email) %>
+              <%= link_to gravatar_for(review.user.email), other_user_photos_path(review.user_id) %>
             </div>
             <div class="name">
               <%= link_to review.user.username.capitalize, other_user_photos_path(review.user_id) %>
