@@ -1,5 +1,7 @@
 # Image Rating
 
+Check it out here: <http://image-rating.herokuapp.com/>
+
 In this project we will be building a social image sharing application where users can upload images for storage and peer review. We will use [CarrierWave](https://github.com/carrierwaveuploader/carrierwave) for image uploads to Amazon S3. We will also be introducing sending email from a rails applications for notifications. We will also be using [Gravatar](http://gravatar.com) to provide user profile images
 
 - As a guest
